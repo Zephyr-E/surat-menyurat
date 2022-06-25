@@ -1,0 +1,1 @@
+@extends('backend.v1.templates.index')
