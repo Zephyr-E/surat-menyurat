@@ -29,31 +29,35 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item {{ Route::currentRouteName() == 'dashboard' ? " active" : "" }}">
+                <li class="nav-item {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item {{ in_array(Route::currentRouteName(), ['incoming-mail.index', 'incoming-mail.create', 'incoming-mail.edit']) ? " active" : "" }}">
+                <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['incoming-mail.index', 'incoming-mail.create', 'incoming-mail.edit']) ? 'active' : '' }}">
                     <a href="{{ route('incoming-mail.index') }}">
                         <i class="fas fa-inbox"></i>
                         <p>Surat Masuk</p>
                     </a>
                 </li>
-                <li class="nav-item {{ in_array(Route::currentRouteName(), ['outgoing-mail.index', 'outgoing-mail.create', 'outgoing-mail.edit']) ? " active" : "" }}">
+                <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['outgoing-mail.index', 'outgoing-mail.create', 'outgoing-mail.edit']) ? 'active' : '' }}">
                     <a href="{{ route('outgoing-mail.index') }}">
                         <i class="fas fa-inbox"></i>
                         <p>Surat Keluar</p>
                     </a>
                 </li>
-                <li class="nav-item {{ in_array(Route::currentRouteName(), ['archive.index', 'archive.create', 'archive.edit']) ? " active" : "" }}">
+                <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['archive.index', 'archive.create', 'archive.edit']) ? 'active' : '' }}">
                     <a href="{{ route('archive.index') }}">
                         <i class="fas fa-file-archive"></i>
                         <p>Arsip</p>
                     </a>
                 </li>
-                <li class="nav-item {{ in_array(Route::currentRouteName(), ['user.index', 'user.create', 'user.edit']) ? " active" : "" }}">
+                <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['user.index', 'user.create', 'user.edit']) ? 'active' : '' }}">
                     <a href="{{ route('user.index') }}">
                         <i class="fas fa-users"></i>
                         <p>Pengguna</p>

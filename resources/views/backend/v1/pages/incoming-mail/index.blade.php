@@ -1,4 +1,3 @@
-{{-- @dd($incoming_mails) --}}
 @extends('backend.v1.templates.index')
 
 @section('title')
@@ -54,7 +53,7 @@
                     </td>
                     @endif
                     <td>{{ $incoming_mail->number }}</td>
-                    <td>{{ Str::limit($incoming_mail->regarding, 70) }}</td>
+                    <td>{{ $incoming_mail->regarding }}</td>
                     <td>{{ $incoming_mail->date }}</td>
                     <td>{{ $incoming_mail->agency }}</td>
                 </tr>

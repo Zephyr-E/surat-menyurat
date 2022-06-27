@@ -13,12 +13,12 @@
             <div class="form-group">
                 <label for="name">Nama Lengkap</label>
                 <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}"
-                    placeholder="Masukkan Nama Lengkap">
+                    placeholder="Masukkan Nama Lengkap" required>
             </div>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}"
-                    placeholder="Masukkan Username">
+                    placeholder="Masukkan Username" required>
             </div>
             @if (Auth::user()->rule !== 'User')
             <div class="form-group">

@@ -12,20 +12,23 @@
             @method('patch')
             <div class="form-group">
                 <label for="number">No Surat</label>
-                <input type="text" class="form-control" name="number" id="number" placeholder="Masukkan No Surat" value="{{ $incoming_mail->number }}">
+                <input type="text" class="form-control" name="number" id="number" placeholder="Masukkan No Surat"
+                    value="{{ $incoming_mail->number }}" required>
             </div>
             <div class="form-group">
                 <label for="regarding">Perihal</label>
                 <textarea class="form-control" name="regarding" id="regarding" cols="30" rows="2"
-                    placeholder="Isi Perihal">{{ $incoming_mail->regarding }}</textarea>
+                    placeholder="Isi Perihal" required>{{ $incoming_mail->regarding }}</textarea>
             </div>
             <div class="form-group">
                 <label for="date">Tanggal</label>
-                <input type="date" class="form-control" name="date" id="date" value="{{ $incoming_mail->date }}">
+                <input type="date" class="form-control" name="date" id="date" value="{{ $incoming_mail->date }}"
+                    required>
             </div>
             <div class="form-group">
                 <label for="agency">Instansi</label>
-                <input type="text" class="form-control" name="agency" id="agency" placeholder="Masukkan Instansi" value="{{ $incoming_mail->agency }}">
+                <input type="text" class="form-control" name="agency" id="agency" placeholder="Masukkan Instansi"
+                    value="{{ $incoming_mail->agency }}" required>
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Perbaharui</button>

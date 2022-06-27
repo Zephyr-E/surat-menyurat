@@ -12,24 +12,26 @@
             <div class="form-group">
                 <label for="number">No Surat</label>
                 <input type="text" class="form-control" readonly name="number" id="number"
-                    placeholder="Masukkan No Surat" value="{{ $outgoingMail ? $outgoingMail->number+1 : '1' }}">
+                    placeholder="Masukkan No Surat" value="{{ $outgoingMail ? $outgoingMail->number+1 : '1' }}"
+                    required>
             </div>
             <div class="form-group">
                 <label for="code">Kode</label>
-                <input type="text" class="form-control" name="code" id="code" placeholder="Masukkan Kode">
+                <input type="text" class="form-control" name="code" id="code" placeholder="Masukkan Kode" required>
             </div>
             <div class="form-group">
                 <label for="regarding">Perihal</label>
                 <textarea class="form-control" name="regarding" id="regarding" cols="30" rows="2"
-                    placeholder="Isi Perihal"></textarea>
+                    placeholder="Isi Perihal" required></textarea>
             </div>
             <div class="form-group">
                 <label for="date">Tanggal</label>
-                <input type="date" class="form-control" name="date" id="date">
+                <input type="date" class="form-control" name="date" id="date" required>
             </div>
             <div class="form-group">
                 <label for="agency">Instansi</label>
-                <input type="text" class="form-control" name="agency" id="agency" placeholder="Masukkan Instansi">
+                <input type="text" class="form-control" name="agency" id="agency" placeholder="Masukkan Instansi"
+                    required>
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Simpan</button>

@@ -56,7 +56,7 @@
                     @endif
                     <td>{{ $outgoing_mail->number }}</td>
                     <td>{{ $outgoing_mail->code }}</td>
-                    <td>{{ Str::limit($outgoing_mail->regarding, 70) }}</td>
+                    <td>{{ $outgoing_mail->regarding }}</td>
                     <td>{{ $outgoing_mail->date }}</td>
                     <td>{{ $outgoing_mail->agency }}</td>
                 </tr>

@@ -13,13 +13,13 @@
             <div class="form-group">
                 <label for="name">Nama File</label>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan Nama File"
-                    value="{{ $archive->name }}">
+                    value="{{ $archive->name }}" required>
             </div>
             <div class="form-group">
                 <label for="file">Upload File</label>
                 <input type="hidden" name="oldFile" value="{{ $archive->file }}">
                 <br><span>Pilih File Baru :</span>
-                <input class="form-control" type="file" id="file" name="file">
+                <input class="form-control" type="file" id="file" name="file" required>
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Perbaharui</button>

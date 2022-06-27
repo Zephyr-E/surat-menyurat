@@ -40,10 +40,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required",
-            "username" => "required",
-            "rule" => "required",
-            "password" => "required"
+            'name' => 'required',
+            'username' => 'required',
+            'rule' => 'required',
+            'password' => 'required'
         ]);
 
         $data = $request->all();
@@ -86,9 +86,9 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            "name" => "required",
-            "username" => "required",
-            "rule" => "required"
+            'name' => 'required',
+            'username' => 'required',
+            'rule' => 'required'
         ]);
 
         $data = $request->all();

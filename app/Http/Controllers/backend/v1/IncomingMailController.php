@@ -17,7 +17,7 @@ class IncomingMailController extends Controller
      */
     public function index()
     {
-        $data["incoming_mails"] = IncomingMail::all();
+        $data['incoming_mails'] = IncomingMail::all();
         return view('backend.v1.pages.incoming-mail.index', $data);
     }
 
@@ -40,18 +40,18 @@ class IncomingMailController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "number" => "required",
-            "regarding" => "required",
-            "date" => "required",
-            "agency" => "required"
+            'number' => 'required',
+            'regarding' => 'required',
+            'date' => 'required',
+            'agency' => 'required'
         ]);
 
         $data = $request->all();
-        $data["user_id"] = Auth::user()->id;
-        $data["uuid"] = Str::uuid();
+        $data['user_id'] = Auth::user()->id;
+        $data['uuid'] = Str::uuid();
         IncomingMail::create($data);
-        
-        return redirect()->route("incoming-mail.index")->with("success", "Surat Masuk Berhasil di Buat");
+
+        return redirect()->route('incoming-mail.index')->with('success', 'Surat Masuk Berhasil di Buat');
     }
 
     /**
@@ -73,7 +73,7 @@ class IncomingMailController extends Controller
      */
     public function edit(IncomingMail $incomingMail)
     {
-        $data["incoming_mail"] = $incomingMail;
+        $data['incoming_mail'] = $incomingMail;
         return view('backend.v1.pages.incoming-mail.edit', $data);
     }
 
@@ -87,16 +87,16 @@ class IncomingMailController extends Controller
     public function update(Request $request, IncomingMail $incomingMail)
     {
         $request->validate([
-            "number" => "required",
-            "regarding" => "required",
-            "date" => "required",
-            "agency" => "required"
+            'number' => 'required',
+            'regarding' => 'required',
+            'date' => 'required',
+            'agency' => 'required'
         ]);
 
         $data = $request->all();
         $incomingMail->update($data);
 
-        return redirect()->route("incoming-mail.index")->with("success", "Surat Masuk Berhasil di Perbaharui");
+        return redirect()->route('incoming-mail.index')->with('success', 'Surat Masuk Berhasil di Perbaharui');
     }
 
     /**
@@ -108,6 +108,6 @@ class IncomingMailController extends Controller
     public function destroy(IncomingMail $incomingMail)
     {
         $incomingMail->delete();
-        return redirect()->back()->with("success", "Surat Masuk Berhasil di Hapus");
+        return redirect()->back()->with('success', 'Surat Masuk Berhasil di Hapus');
     }
 }

@@ -17,7 +17,7 @@ class OutgoingMailController extends Controller
      */
     public function index()
     {
-        $data["outgoing_mails"] = OutgoingMail::all();
+        $data['outgoing_mails'] = OutgoingMail::all();
         return view('backend.v1.pages.outgoing-mail.index', $data);
     }
 
@@ -28,8 +28,7 @@ class OutgoingMailController extends Controller
      */
     public function create()
     {
-        $data['outgoingMail'] = OutgoingMail::orderBy('id','DESC')->first();
-        // dd($data);
+        $data['outgoingMail'] = OutgoingMail::orderBy('id', 'DESC')->first();
         return view('backend.v1.pages.outgoing-mail.create', $data);
     }
 
@@ -42,18 +41,18 @@ class OutgoingMailController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "code" => "required",
-            "regarding" => "required",
-            "date" => "required",
-            "agency" => "required"
+            'code' => 'required',
+            'regarding' => 'required',
+            'date' => 'required',
+            'agency' => 'required'
         ]);
 
         $data = $request->all();
-        $data["user_id"] = Auth::user()->id;
-        $data["uuid"] = Str::uuid();
+        $data['user_id'] = Auth::user()->id;
+        $data['uuid'] = Str::uuid();
         OutgoingMail::create($data);
 
-        return redirect()->route("outgoing-mail.index")->with("success", "Surat Keluar Berhasil di Buat");
+        return redirect()->route('outgoing-mail.index')->with('success', 'Surat Keluar Berhasil di Buat');
     }
 
     /**
@@ -75,7 +74,7 @@ class OutgoingMailController extends Controller
      */
     public function edit(OutgoingMail $outgoingMail)
     {
-        $data["outgoing_mail"] = $outgoingMail;
+        $data['outgoing_mail'] = $outgoingMail;
         return view('backend.v1.pages.outgoing-mail.edit', $data);
     }
 
@@ -89,17 +88,17 @@ class OutgoingMailController extends Controller
     public function update(Request $request, OutgoingMail $outgoingMail)
     {
         $request->validate([
-            "number" => "required",
-            "code" => "required",
-            "regarding" => "required",
-            "date" => "required",
-            "agency" => "required"
+            'number' => 'required',
+            'code' => 'required',
+            'regarding' => 'required',
+            'date' => 'required',
+            'agency' => 'required'
         ]);
 
         $data = $request->all();
         $outgoingMail->update($data);
 
-        return redirect()->route("outgoing-mail.index")->with("success", "Surat Keluar Berhasil di Perbaharui");
+        return redirect()->route('outgoing-mail.index')->with('success', 'Surat Keluar Berhasil di Perbaharui');
     }
 
     /**
@@ -111,6 +110,6 @@ class OutgoingMailController extends Controller
     public function destroy(OutgoingMail $outgoingMail)
     {
         $outgoingMail->delete();
-        return redirect()->back()->with("success", "Surat Keluar Berhasil Dihapus");
+        return redirect()->back()->with('success', 'Surat Keluar Berhasil Dihapus');
     }
 }

@@ -19,7 +19,7 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        $data["archives"] = Archive::all();
+        $data['archives'] = Archive::all();
         return view('backend.v1.pages.archive.index', $data);
     }
 
@@ -43,16 +43,16 @@ class ArchiveController extends Controller
     {
 
         $request->validate([
-            "file" => "required|max:10024",
-            "name" => "required"
+            'file' => 'required|max:10024',
+            'name' => 'required'
         ]);
         $data = $request->all();
-        $data["user_id"] = Auth::user()->id;
-        $data["uuid"] = Str::uuid();
-        $data["file"] = $request->file('file')->store('assets/archive', 'public');
+        $data['user_id'] = Auth::user()->id;
+        $data['uuid'] = Str::uuid();
+        $data['file'] = $request->file('file')->store('assets/archive', 'public');
         Archive::create($data);
 
-        return redirect()->route('archive.index')->with("success", "Arsip Berhasil di Buat");
+        return redirect()->route('archive.index')->with('success', 'Arsip Berhasil di Buat');
     }
 
     /**
@@ -74,8 +74,8 @@ class ArchiveController extends Controller
      */
     public function edit(Archive $archive)
     {
-        $data["archive"] = $archive;
-        return view("backend.v1.pages.archive.edit", $data);
+        $data['archive'] = $archive;
+        return view('backend.v1.pages.archive.edit', $data);
     }
 
     /**
@@ -89,17 +89,17 @@ class ArchiveController extends Controller
     {
         // dd($request->oldFile);
         $request->validate([
-            "name" => "required"
+            'name' => 'required'
         ]);
 
         $data = $request->all();
         if (!is_null($request->file)) {
             Storage::disk('public')->delete($request->oldFile);
         }
-        $data["file"] = $request->file('file')->store('assets/archive', 'public');
+        $data['file'] = $request->file('file')->store('assets/archive', 'public');
         $archive->update($data);
 
-        return redirect()->route("archive.index")->with("success", "Arsip Berhasil di Perbaharui");
+        return redirect()->route('archive.index')->with('success', 'Arsip Berhasil di Perbaharui');
     }
 
     /**
@@ -112,6 +112,6 @@ class ArchiveController extends Controller
     {
         File::delete('storage/' . $archive->file);
         $archive->delete();
-        return redirect()->back()->with("success", "Arsip Berhasil di Hapus");
+        return redirect()->back()->with('success', 'Arsip Berhasil di Hapus');
     }
 }

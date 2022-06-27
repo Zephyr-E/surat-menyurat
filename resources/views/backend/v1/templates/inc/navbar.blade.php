@@ -2,9 +2,6 @@
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="blue">
 
-        {{-- <a href="index.html" class="logo">
-            <img src="{{ url('templates/backend') }}/img/logo.svg" alt="navbar brand" class="navbar-brand">
-        </a> --}}
         <a href="{{ route('dashboard') }}" class="logo text-white font-weight-bold">E-KATAPANG</a>
 
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
