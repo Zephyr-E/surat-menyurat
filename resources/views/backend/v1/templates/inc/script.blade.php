@@ -12,6 +12,9 @@
 <!-- jQuery Scrollbar -->
 <script src="{{ url('templates/backend') }}/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
 <!-- Atlantis JS -->
 <script src="{{ url('templates/backend') }}/js/atlantis.min.js"></script>
 
@@ -20,63 +23,5 @@
 <script src="{{ url('templates/backend') }}/js/setting-demo2.js"></script>
 
 <script>
-	var SweetAlert2Demo = function() {
-
-        //== Demos
-        var initDemos = function() {
-            $('#alert_demo_6').click(function(e) {
-                swal("This modal will disappear soon!", {
-                    buttons: false,
-                    timer: 3000,
-                });
-            });
-        };
-
-        $('#alert_demo_7').click(function(e) {
-					swal({
-						title: 'Are you sure?',
-						text: "You won't be able to revert this!",
-						type: 'warning',
-						buttons:{
-							confirm: {
-								text : 'Yes, delete it!',
-								className : 'btn btn-success'
-							},
-							cancel: {
-								visible: true,
-								className: 'btn btn-danger'
-							}
-						}
-					}).then((Delete) => {
-						if (Delete) {
-							swal({
-								title: 'Deleted!',
-								text: 'Your file has been deleted.',
-								type: 'success',
-								buttons : {
-									confirm: {
-										className : 'btn btn-success'
-									}
-								}
-							});
-						} else {
-							swal.close();
-						}
-					});
-				});
-
-                return {
-                //== Init
-                init: function() {
-                    initDemos();
-                },
-            };
-        }();
-
-
-        //== Class Initialization
-		jQuery(document).ready(function() {
-			SweetAlert2Demo.init();
-		});
-
+    $('.datatables').DataTable();
 </script>

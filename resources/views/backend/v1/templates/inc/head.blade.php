@@ -4,8 +4,15 @@
 <script src="{{ url('templates/backend') }}/js/plugin/webfont/webfont.min.js"></script>
 <script>
     WebFont.load({
-        google: {"families":["Lato:300,400,700,900"]},
-        custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['{{ url('templates/backend') }}/css/fonts.min.css']},
+        google: {
+            "families": ["Lato:300,400,700,900"]
+        },
+        custom: {
+            "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands",
+                "simple-line-icons"
+            ],
+            urls: ['{{ url('templates/backend') }}/css/fonts.min.css']
+        },
         active: function() {
             sessionStorage.fonts = true;
         }
@@ -15,6 +22,8 @@
 <!-- CSS Files -->
 <link rel="stylesheet" href="{{ url('templates/backend') }}/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ url('templates/backend') }}/css/atlantis.min.css">
+{{-- https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link rel="stylesheet" href="{{ url('templates/backend') }}/css/demo.css">
