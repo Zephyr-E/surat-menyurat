@@ -41,6 +41,7 @@
 
     </div>
     @include('backend.v1.templates.inc.script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

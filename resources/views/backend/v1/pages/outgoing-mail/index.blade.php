@@ -51,7 +51,8 @@
                             <form action="{{ route('outgoing-mail.destroy', $outgoing_mail->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-light btn-sm text-danger">
+                                <button class="btn btn-light btn-sm text-danger"
+                                    onclick="return confirm('Yakin Ingin Hapus Surat Keluar?')">
                                     <i class="fas fa-trash text-danger"></i>
                                     Hapus
                                 </button>

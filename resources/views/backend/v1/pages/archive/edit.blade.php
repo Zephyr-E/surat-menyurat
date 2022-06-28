@@ -19,7 +19,7 @@
                 <label for="file">Upload File</label>
                 <input type="hidden" name="oldFile" value="{{ $archive->file }}">
                 <br><span>Pilih File Baru :</span>
-                <input class="form-control" type="file" id="file" name="file" required>
+                <input class="form-control" type="file" id="file" name="file">
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Perbaharui</button>

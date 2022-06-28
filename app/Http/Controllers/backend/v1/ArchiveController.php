@@ -52,7 +52,7 @@ class ArchiveController extends Controller
         $data['file'] = $request->file('file')->store('assets/archive', 'public');
         Archive::create($data);
 
-        return redirect()->route('archive.index')->with('success', 'Arsip Berhasil di Buat');
+        return redirect()->route('archive.index')->with('toast_success', 'Arsip Berhasil di Buat');
     }
 
     /**
@@ -87,7 +87,6 @@ class ArchiveController extends Controller
      */
     public function update(Request $request, Archive $archive)
     {
-        // dd($request->oldFile);
         $request->validate([
             'name' => 'required'
         ]);
@@ -95,11 +94,12 @@ class ArchiveController extends Controller
         $data = $request->all();
         if (!is_null($request->file)) {
             Storage::disk('public')->delete($request->oldFile);
+            $data['file'] = $request->file('file')->store('assets/archive', 'public');
         }
-        $data['file'] = $request->file('file')->store('assets/archive', 'public');
+
         $archive->update($data);
 
-        return redirect()->route('archive.index')->with('success', 'Arsip Berhasil di Perbaharui');
+        return redirect()->route('archive.index')->with('toast_success', 'Arsip Berhasil di Perbaharui');
     }
 
     /**
@@ -112,6 +112,6 @@ class ArchiveController extends Controller
     {
         File::delete('storage/' . $archive->file);
         $archive->delete();
-        return redirect()->back()->with('success', 'Arsip Berhasil di Hapus');
+        return redirect()->back()->with('toast_success', 'Arsip Berhasil di Hapus');
     }
 }

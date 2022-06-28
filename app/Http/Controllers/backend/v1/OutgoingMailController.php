@@ -52,7 +52,7 @@ class OutgoingMailController extends Controller
         $data['uuid'] = Str::uuid();
         OutgoingMail::create($data);
 
-        return redirect()->route('outgoing-mail.index')->with('success', 'Surat Keluar Berhasil di Buat');
+        return redirect()->route('outgoing-mail.index')->with('toast_success', 'Surat Keluar Berhasil di Buat');
     }
 
     /**
@@ -98,7 +98,7 @@ class OutgoingMailController extends Controller
         $data = $request->all();
         $outgoingMail->update($data);
 
-        return redirect()->route('outgoing-mail.index')->with('success', 'Surat Keluar Berhasil di Perbaharui');
+        return redirect()->route('outgoing-mail.index')->with('toast_success', 'Surat Keluar Berhasil di Perbaharui');
     }
 
     /**
@@ -110,6 +110,6 @@ class OutgoingMailController extends Controller
     public function destroy(OutgoingMail $outgoingMail)
     {
         $outgoingMail->delete();
-        return redirect()->back()->with('success', 'Surat Keluar Berhasil Dihapus');
+        return redirect()->back()->with('toast_success', 'Surat Keluar Berhasil Dihapus');
     }
 }

@@ -50,7 +50,7 @@ class UserController extends Controller
         $data['password'] = Hash::make($request->password);
         User::create($data);
 
-        return redirect()->route('user.index')->with('success', 'Pengguna Berhasil di Tambahkan');
+        return redirect()->route('user.index')->with('toast_success', 'Pengguna Berhasil di Tambahkan');
     }
 
     /**
@@ -94,7 +94,7 @@ class UserController extends Controller
         $data = $request->all();
         $user->update($data);
 
-        return redirect()->route('user.index')->with('success', 'Pengguna Berhasil di Perbaharui');
+        return redirect()->route('user.index')->with('toast_success', 'Pengguna Berhasil di Perbaharui');
     }
 
     /**
@@ -106,6 +106,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->back()->with('success', 'Pengguna Berhasil di Hapus');
+        return redirect()->back()->with('toast_success', 'Pengguna Berhasil di Hapus');
     }
 }

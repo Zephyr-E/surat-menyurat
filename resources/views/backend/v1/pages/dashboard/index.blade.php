@@ -87,10 +87,4 @@
         </div>
     </div>
 </div>
-
-<div class="card">
-    <div class="card-body">
-        <img class="img-fluid" src="{{ url('templates/backend') }}/img/banner1.jpg" alt="">
-    </div>
-</div>
 @endsection
