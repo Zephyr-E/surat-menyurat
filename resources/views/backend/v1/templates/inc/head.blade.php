@@ -1,4 +1,4 @@
-{{-- <link rel="icon" href="{{ url('templates/backend') }}/img/icon.ico" type="image/x-icon" /> --}}
+<link rel="icon" href="{{ url('templates/backend') }}/img/tapin.png" type="image/x-icon" />
 
 <!-- Fonts and icons -->
 <script src="{{ url('templates/backend') }}/js/plugin/webfont/webfont.min.js"></script>

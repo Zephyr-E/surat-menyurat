@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="card mt-5">
+<div class="card">
     <div class="card-body">
         <form action="{{ route('outgoing-mail.update', $outgoing_mail) }}" method="POST">
             @csrf
