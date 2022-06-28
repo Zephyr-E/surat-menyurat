@@ -29,10 +29,10 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}">
+                <li class="nav-item {{ Route::currentRouteName() == 'home' ? 'active' : '' }}">
+                    <a href="{{ route('home') }}">
                         <i class="fas fa-home"></i>
-                        <p>Dashboard</p>
+                        <p>Beranda</p>
                     </a>
                 </li>
                 <li

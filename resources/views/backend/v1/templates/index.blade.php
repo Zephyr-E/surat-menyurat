@@ -10,6 +10,7 @@
 
 <body>
     <div class="wrapper">
+
         @include('backend.v1.templates.inc.navbar')
 
         @include('backend.v1.templates.inc.side')

@@ -16,7 +16,7 @@ class IncomingMailFactory extends Factory
         return [
             "user_id" => 1,
             "uuid" => $this->faker->uuid(),
-            "number" => $this->faker->randomDigit(),
+            "number" => $this->faker->numberBetween(100, 200),
             "regarding" => $this->faker->text(100),
             "date" => $this->faker->dateTime(),
             "agency" => $this->faker->company()

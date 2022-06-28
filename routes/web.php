@@ -6,7 +6,7 @@ use App\Http\Controllers\backend\v1\IncomingMailController;
 use App\Http\Controllers\backend\v1\LogoutController;
 use App\Http\Controllers\backend\v1\OutgoingMailController;
 use App\Http\Controllers\backend\v1\UserController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\backend\v1\ReportController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -26,10 +26,12 @@ Route::group(["middleware" => [
     config('jetstream.auth_session'),
     'verified'
 ]], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::resource('incoming-mail', IncomingMailController::class);
     Route::resource('outgoing-mail', OutgoingMailController::class);
     Route::resource('archive', ArchiveController::class);
     Route::resource('user', UserController::class);
-    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/report/incoming-mail', [ReportController::class, 'incoming_mail'])->name('report.incoming-mail');
+    Route::get('/report/outgoing-mail', [ReportController::class, 'outgoing_mail'])->name('report.outgoing-mail');
+    Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 });
