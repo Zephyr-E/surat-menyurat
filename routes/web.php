@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\backend\v1\ArchiveController;
 use App\Http\Controllers\backend\v1\DashboardController;
+use App\Http\Controllers\backend\v1\EmployeeController;
 use App\Http\Controllers\backend\v1\IncomingMailController;
-use App\Http\Controllers\backend\v1\LogoutController;
 use App\Http\Controllers\backend\v1\OutgoingMailController;
 use App\Http\Controllers\backend\v1\UserController;
 use App\Http\Controllers\backend\v1\ReportController;
@@ -27,11 +27,15 @@ Route::group(["middleware" => [
     'verified'
 ]], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
+    Route::get('profile', [DashboardController::class, 'profile'])->name('profile');
+    Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
+
     Route::resource('incoming-mail', IncomingMailController::class);
     Route::resource('outgoing-mail', OutgoingMailController::class);
     Route::resource('archive', ArchiveController::class);
+    Route::resource('employee', EmployeeController::class);
     Route::resource('user', UserController::class);
+
     Route::get('/report/incoming-mail', [ReportController::class, 'incoming_mail'])->name('report.incoming-mail');
     Route::get('/report/outgoing-mail', [ReportController::class, 'outgoing_mail'])->name('report.outgoing-mail');
-    Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 });

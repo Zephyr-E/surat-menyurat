@@ -52,7 +52,7 @@ class ArchiveController extends Controller
         $data['file'] = $request->file('file')->store('assets/archive', 'public');
         Archive::create($data);
 
-        return redirect()->route('archive.index')->with('toast_success', 'Arsip Berhasil di Buat');
+        return redirect()->route('archive.index')->with('toast_success', 'Arsip Berhasil di Tambahkan');
     }
 
     /**

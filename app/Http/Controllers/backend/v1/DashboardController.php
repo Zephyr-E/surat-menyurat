@@ -20,4 +20,20 @@ class DashboardController extends Controller
         $data['user'] = User::count();
         return view('backend.v1.pages.dashboard.index', $data);
     }
+
+    public function profile()
+    {
+        $id = Auth::user()->id;
+        $data['user'] = User::find($id);
+        return view('profile.show', $data);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }

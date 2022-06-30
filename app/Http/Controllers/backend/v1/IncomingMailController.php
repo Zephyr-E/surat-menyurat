@@ -51,7 +51,7 @@ class IncomingMailController extends Controller
         $data['uuid'] = Str::uuid();
         IncomingMail::create($data);
 
-        return redirect()->route('incoming-mail.index')->with('toast_success', 'Surat Masuk Berhasil di Buat');
+        return redirect()->route('incoming-mail.index')->with('toast_success', 'Surat Masuk Berhasil di Tambahkan');
     }
 
     /**

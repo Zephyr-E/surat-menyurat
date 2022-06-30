@@ -20,7 +20,7 @@
                     <div class="collapse in" id="collapseExample">
                         <ul class="nav">
                             <li>
-                                <a href="{{ route('user.edit', Auth::user()->id) }}">
+                                <a href="{{ route('profile') }}">
                                     <span class="link-collapse">Pengaturan Akun</span>
                                 </a>
                             </li>
@@ -54,6 +54,13 @@
                     <a href="{{ route('archive.index') }}">
                         <i class="fas fa-file-archive"></i>
                         <p>Arsip</p>
+                    </a>
+                </li>
+                <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['employee.index', 'employee.create', 'employee.edit']) ? 'active' : '' }}">
+                    <a href="{{ route('employee.index') }}">
+                        <i class="fas fa-users"></i>
+                        <p>Pegawai</p>
                     </a>
                 </li>
                 <li

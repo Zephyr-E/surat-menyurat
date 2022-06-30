@@ -67,7 +67,7 @@
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id) }}">Pengaturan
+                                <a class="dropdown-item" href="{{ url('profile') }}">Pengaturan
                                     Akun</a>
                                 <div class="dropdown-divider"></div>
                                 <form action="{{ route('logout') }}" method="POST">

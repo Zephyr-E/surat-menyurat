@@ -10,7 +10,7 @@
 
 <body>
     <h1 class="text-center">Laporan Surat Keluar</h1>
-    <h1 class="text-center">Nama Lembaga</h1>
+    <h1 class="text-center">Dinas Ketahanan Pangan</h1>
     <div class="wrapper mt-4">
         <table class="table table-bordered">
             <thead>

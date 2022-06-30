@@ -29,6 +29,7 @@
                         </div>
                         @endif
                     </th>
+                    <th scope="col">Author</th>
                     <th scope="col">No Surat</th>
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
@@ -59,6 +60,7 @@
                         </div>
                         @endif
                     </td>
+                    <td>{{ $incoming_mail->user->name }}</td>
                     <td>{{ $incoming_mail->number }}</td>
                     <td>{{ $incoming_mail->regarding }}</td>
                     <td>{{ $incoming_mail->date }}</td>

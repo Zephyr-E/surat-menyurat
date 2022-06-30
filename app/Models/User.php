@@ -44,4 +44,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function incomingMails()
+    {
+        return $this->hasMany(IncomingMail::class);
+    }
+
+    public function outgoingMails()
+    {
+        return $this->hasMany(OutgoingMail::class);
+    }
 }

@@ -52,7 +52,7 @@ class OutgoingMailController extends Controller
         $data['uuid'] = Str::uuid();
         OutgoingMail::create($data);
 
-        return redirect()->route('outgoing-mail.index')->with('toast_success', 'Surat Keluar Berhasil di Buat');
+        return redirect()->route('outgoing-mail.index')->with('toast_success', 'Surat Keluar Berhasil di Tambahkan');
     }
 
     /**
