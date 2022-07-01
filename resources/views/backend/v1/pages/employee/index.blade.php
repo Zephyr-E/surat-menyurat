@@ -31,9 +31,8 @@
             </thead>
             <tbody>
                 @foreach ($employees as $employee)
-                @continue(Auth::user()->id == $employee->id)
                 <tr>
-                    <td>{{ $loop->remaining + 1 }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>
                         @if (Auth::user()->rule !== 'User')
                         <div class="row justify-content-center">
