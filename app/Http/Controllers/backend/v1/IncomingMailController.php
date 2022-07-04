@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Models\IncomingMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class IncomingMailController extends Controller
@@ -28,7 +31,8 @@ class IncomingMailController extends Controller
      */
     public function create()
     {
-        return view('backend.v1.pages.incoming-mail.create');
+        $data['employees'] = Employee::all();
+        return view('backend.v1.pages.incoming-mail.create', $data);
     }
 
     /**
@@ -43,12 +47,15 @@ class IncomingMailController extends Controller
             'number' => 'required',
             'regarding' => 'required',
             'date' => 'required',
-            'agency' => 'required'
+            'agency' => 'required',
+            'file' => 'required|max:10024',
+            'employee_id' => 'required'
         ]);
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['uuid'] = Str::uuid();
+        $data['file'] = $request->file('file')->store('assets/incoming-mail', 'public');
         IncomingMail::create($data);
 
         return redirect()->route('incoming-mail.index')->with('toast_success', 'Surat Masuk Berhasil di Tambahkan');
@@ -74,6 +81,7 @@ class IncomingMailController extends Controller
     public function edit(IncomingMail $incomingMail)
     {
         $data['incoming_mail'] = $incomingMail;
+        $data['employees'] = Employee::all();
         return view('backend.v1.pages.incoming-mail.edit', $data);
     }
 
@@ -90,10 +98,15 @@ class IncomingMailController extends Controller
             'number' => 'required',
             'regarding' => 'required',
             'date' => 'required',
-            'agency' => 'required'
+            'agency' => 'required',
+            'employee_id' => 'required'
         ]);
 
         $data = $request->all();
+        if (!is_null($request->file)) {
+            Storage::disk('public')->delete($request->oldFile);
+            $data['file'] = $request->file('file')->store('assets/incoming-mail', 'public');
+        }
         $incomingMail->update($data);
 
         return redirect()->route('incoming-mail.index')->with('toast_success', 'Surat Masuk Berhasil di Perbaharui');
@@ -107,6 +120,7 @@ class IncomingMailController extends Controller
      */
     public function destroy(IncomingMail $incomingMail)
     {
+        File::delete('storage/' . $incomingMail->file);
         $incomingMail->delete();
         return redirect()->back()->with('toast_success', 'Surat Masuk Berhasil di Hapus');
     }

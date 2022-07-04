@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(OutgoingMail::class);
     }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
 }

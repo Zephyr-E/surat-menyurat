@@ -21,6 +21,7 @@
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
+                    <th scope="col">TTE</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,12 +31,17 @@
                     <td>{{ $outgoing_mail->number }}</td>
                     <td>{{ $outgoing_mail->code }}</td>
                     <td>{{ $outgoing_mail->regarding }}</td>
-                    <td>{{ $outgoing_mail->date }}</td>
+                    <td>{{ date('d-m-Y', strtotime($outgoing_mail->date)) }}</td>
                     <td>{{ $outgoing_mail->agency }}</td>
+                    <td>
+                        <img class="p-3"
+                            src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee.show', $outgoing_mail->employee->id), 'QRCODE', 2, 2) }}"
+                            alt="barcode">
+                    </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="text-center">Surat Keluar Kosong</td>
+                    <td colspan="7" class="text-center">Surat Keluar Kosong</td>
                 </tr>
                 @endforelse
             </tbody>
