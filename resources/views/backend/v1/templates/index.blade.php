@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>E-KATAPANG</title>
+    <title>E-KETAPANG</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     @include('backend.v1.templates.inc.head')
 </head>
@@ -24,7 +24,7 @@
                                 @yield('title')
                             </div>
                             <div class="ml-md-auto py-2 py-md-0">
-                                @if (Auth::user()->rule !== 'User')
+                                @if (Auth::user()->role !== 'User')
                                 @yield('button')
                                 @endif
                             </div>

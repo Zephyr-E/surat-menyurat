@@ -31,21 +31,21 @@
                 <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}"
                     placeholder="Masukkan Username" required>
             </div>
-            @if (Auth::user()->rule !== 'User')
+            @if (Auth::user()->role !== 'User')
             <div class="form-group">
-                <label for="rule">Status</label>
+                <label for="role">Status</label>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rule" id="rule" value="Admin" {{ $user->rule
+                        <input class="form-check-input" type="radio" name="role" id="role" value="Admin" {{ $user->role
                         == 'Admin' ? 'checked' : '' }}>
-                        <label class="form-check-label" for="rule">
+                        <label class="form-check-label" for="role">
                             Admin
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rule" id="rule" value="User" {{ $user->rule
+                        <input class="form-check-input" type="radio" name="role" id="role" value="User" {{ $user->role
                         == 'User' ? 'checked' : '' }}>
-                        <label class="form-check-label" for="rule">
+                        <label class="form-check-label" for="role">
                             User
                         </label>
                     </div>

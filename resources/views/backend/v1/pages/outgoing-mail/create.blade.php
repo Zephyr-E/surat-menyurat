@@ -34,8 +34,9 @@
                     required>
             </div>
             <div class="form-group">
-                <label for="employee_id">Pegawai</label>
-                <select class="form-control selectpicker" id="employee_id" name="employee_id" data-live-search="true" required>
+                <label for="employee_id">TTE Pegawai</label>
+                <select class="form-control selectpicker" id="employee_id" name="employee_id" data-live-search="true"
+                    required>
                     <option value="">-- Pilih Pegawai --</option>
                     @foreach ($employees as $employee)
                     <option value="{{ $employee->id }}">{{ $employee->nip.' | '.$employee->name }}</option>

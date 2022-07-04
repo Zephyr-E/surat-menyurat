@@ -76,6 +76,25 @@
                             </div>
                             <div class="col-7 col-stats">
                                 <div class="numbers">
+                                    <p class="card-category">Pegawai</p>
+                                    <h4 class="card-title">{{ $employee }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-warning card-round">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="icon-big text-center">
+                                    <i class="fas fa-users fa-fw"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-stats">
+                                <div class="numbers">
                                     <p class="card-category">Pengguna</p>
                                     <h4 class="card-title">{{ $user }}</h4>
                                 </div>

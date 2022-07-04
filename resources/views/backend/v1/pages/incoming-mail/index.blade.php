@@ -23,7 +23,7 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
@@ -34,7 +34,7 @@
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
-                    <th scope="col">TTE</th>
+                    <th scope="col">TTE Pegawai</th>
                     <th scope="col">File</th>
                 </tr>
             </thead>
@@ -43,7 +43,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="row justify-content-center">
                             <a href="{{ route('incoming-mail.edit', $incoming_mail->id) }}"
                                 class="btn btn-light btn-sm">

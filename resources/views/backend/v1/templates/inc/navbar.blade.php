@@ -2,7 +2,7 @@
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="blue">
 
-        <a href="{{ route('home') }}" class="logo text-white font-weight-bold">E-KATAPANG</a>
+        <a href="{{ route('home') }}" class="logo text-white font-weight-bold">E-KETAPANG</a>
 
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
             data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,8 +59,8 @@
                                         <h4>{{ Auth::user()->name }}</h4>
                                         <p class="text-muted">{{ Auth::user()->username }}</p>
                                         <span
-                                            class="btn btn-xs btn-{{ Auth::user()->rule == 'Admin' ? 'secondary' : 'primary' }} btn-sm">{{
-                                            Auth::user()->rule }}
+                                            class="btn btn-xs btn-{{ Auth::user()->role == 'Admin' ? 'secondary' : 'primary' }} btn-sm">{{
+                                            Auth::user()->role }}
                                         </span>
                                     </div>
                                 </div>

@@ -23,7 +23,7 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
@@ -36,6 +36,7 @@
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
                     <th scope="col">TTE</th>
+                    <th scope="col">Pegawai</th>
                     <th scope="col">File</th>
                 </tr>
             </thead>
@@ -44,7 +45,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="row justify-content-center">
                             <a href="{{ route('outgoing-mail.edit', $outgoing_mail->id) }}"
                                 class="btn btn-light btn-sm">
@@ -74,6 +75,7 @@
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee.show', $outgoing_mail->employee->id), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
+                    <td>{{ $outgoing_mail->employee->nip .'|'. $outgoing_mail->employee->name }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $outgoing_mail->file }}" target="_blank">
                             <i class="fas fa-download"></i>

@@ -17,7 +17,7 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
@@ -25,7 +25,7 @@
                     </th>
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Role</th>
                     <th scope="col">Tanggal di Buat</th>
                 </tr>
             </thead>
@@ -35,7 +35,7 @@
                 <tr>
                     <td>{{ $loop->remaining + 1 }}</td>
                     <td>
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="row justify-content-center">
                             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
@@ -55,7 +55,7 @@
                     </td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->username }}</td>
-                    <td>{{ $user->rule }}</td>
+                    <td>{{ $user->role }}</td>
                     <td>{{ $user->created_at }}</td>
                 </tr>
                 @endforeach

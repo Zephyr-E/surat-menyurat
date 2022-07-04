@@ -11,7 +11,7 @@
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                         <span>
                             {{ Str::limit(Auth::user()->name, 16) }}
-                            <span class="user-level">{{ Auth::user()->rule }}</span>
+                            <span class="user-level">{{ Auth::user()->role }}</span>
                             <span class="caret"></span>
                         </span>
                     </a>

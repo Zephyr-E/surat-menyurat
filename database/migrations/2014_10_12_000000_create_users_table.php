@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
-            $table->enum('rule', ["Admin", "User"]);
+            $table->enum('role', ["Admin", "User"]);
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

@@ -25,17 +25,17 @@
                     placeholder="Masukkan Password" required>
             </div>
             <div class="form-group">
-                <label for="rule">Status</label>
+                <label for="role">Role</label>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rule" id="rule" value="Admin" checked>
-                        <label class="form-check-label" for="rule">
+                        <input class="form-check-input" type="radio" name="role" id="role" value="Admin" checked>
+                        <label class="form-check-label" for="role">
                             Admin
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rule" id="rule" value="User">
-                        <label class="form-check-label" for="rule">
+                        <input class="form-check-input" type="radio" name="role" id="role" value="User">
+                        <label class="form-check-label" for="role">
                             User
                         </label>
                     </div>

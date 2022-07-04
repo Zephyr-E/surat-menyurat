@@ -42,7 +42,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'username' => 'required',
-            'rule' => 'required',
+            'role' => 'required',
             'password' => 'required'
         ]);
 
@@ -88,7 +88,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'username' => 'required',
-            'rule' => 'required'
+            'role' => 'required'
         ]);
 
         $data = $request->all();

@@ -17,7 +17,7 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col" class="col-2">
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
@@ -32,7 +32,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        @if (Auth::user()->rule !== 'User')
+                        @if (Auth::user()->role !== 'User')
                         <div class="row justify-content-center">
                             <a href="{{ route('archive.edit', $archive->id) }}" class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
