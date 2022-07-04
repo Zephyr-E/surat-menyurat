@@ -22,6 +22,9 @@
 <script src="{{ url('templates/backend') }}/js/setting-demo.js"></script>
 <script src="{{ url('templates/backend') }}/js/setting-demo2.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
 <script>
     $('.datatables').DataTable();
 </script>

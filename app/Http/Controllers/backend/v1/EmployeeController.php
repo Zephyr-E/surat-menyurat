@@ -60,7 +60,8 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        $data['employee'] = $employee;
+        return view('backend.v1.pages.employee.show', $data);
     }
 
     /**

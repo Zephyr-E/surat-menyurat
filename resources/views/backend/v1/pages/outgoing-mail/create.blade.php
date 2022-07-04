@@ -7,7 +7,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('outgoing-mail.store') }}" method="POST">
+        <form action="{{ route('outgoing-mail.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="number">No Surat</label>
@@ -32,6 +32,20 @@
                 <label for="agency">Instansi</label>
                 <input type="text" class="form-control" name="agency" id="agency" placeholder="Masukkan Instansi"
                     required>
+            </div>
+            <div class="form-group">
+                <label for="employee_id">Pegawai</label>
+                <select class="form-control selectpicker" id="employee_id" name="employee_id" data-live-search="true" required>
+                    <option value="">-- Pilih Pegawai --</option>
+                    @foreach ($employees as $employee)
+                    <option value="{{ $employee->id }}">{{ $employee->nip.' | '.$employee->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="file">Upload File</label>
+                <br><span>Pilih File Baru :</span>
+                <input class="form-control" type="file" id="file" name="file" required>
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Simpan</button>

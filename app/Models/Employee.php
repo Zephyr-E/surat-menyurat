@@ -15,4 +15,14 @@ class Employee extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function incomingMails()
+    {
+        return $this->hasMany(IncomingMail::class);
+    }
+
+    public function outgoingMails()
+    {
+        return $this->hasMany(OutgoingMail::class);
+    }
 }

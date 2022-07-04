@@ -39,3 +39,5 @@ Route::group(["middleware" => [
     Route::get('/report/incoming-mail', [ReportController::class, 'incoming_mail'])->name('report.incoming-mail');
     Route::get('/report/outgoing-mail', [ReportController::class, 'outgoing_mail'])->name('report.outgoing-mail');
 });
+
+Route::get('/employee/{employee}/show', [EmployeeController::class, 'show'])->name('employee.show');

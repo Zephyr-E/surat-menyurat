@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Models\OutgoingMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class OutgoingMailController extends Controller
@@ -29,6 +32,7 @@ class OutgoingMailController extends Controller
     public function create()
     {
         $data['outgoingMail'] = OutgoingMail::orderBy('id', 'DESC')->first();
+        $data['employees'] = Employee::all();
         return view('backend.v1.pages.outgoing-mail.create', $data);
     }
 
@@ -44,12 +48,15 @@ class OutgoingMailController extends Controller
             'code' => 'required',
             'regarding' => 'required',
             'date' => 'required',
-            'agency' => 'required'
+            'agency' => 'required',
+            'file' => 'required|max:10024',
+            'employee_id' => 'required'
         ]);
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['uuid'] = Str::uuid();
+        $data['file'] = $request->file('file')->store('assets/outgoing-mail', 'public');
         OutgoingMail::create($data);
 
         return redirect()->route('outgoing-mail.index')->with('toast_success', 'Surat Keluar Berhasil di Tambahkan');
@@ -75,6 +82,7 @@ class OutgoingMailController extends Controller
     public function edit(OutgoingMail $outgoingMail)
     {
         $data['outgoing_mail'] = $outgoingMail;
+        $data['employees'] = Employee::all();
         return view('backend.v1.pages.outgoing-mail.edit', $data);
     }
 
@@ -92,10 +100,15 @@ class OutgoingMailController extends Controller
             'code' => 'required',
             'regarding' => 'required',
             'date' => 'required',
-            'agency' => 'required'
+            'agency' => 'required',
+            'employee_id' => 'required'
         ]);
 
         $data = $request->all();
+        if (!is_null($request->file)) {
+            Storage::disk('public')->delete($request->oldFile);
+            $data['file'] = $request->file('file')->store('assets/outgoing-mail', 'public');
+        }
         $outgoingMail->update($data);
 
         return redirect()->route('outgoing-mail.index')->with('toast_success', 'Surat Keluar Berhasil di Perbaharui');
@@ -109,6 +122,7 @@ class OutgoingMailController extends Controller
      */
     public function destroy(OutgoingMail $outgoingMail)
     {
+        File::delete('storage/' . $outgoingMail->file);
         $outgoingMail->delete();
         return redirect()->back()->with('toast_success', 'Surat Keluar Berhasil Dihapus');
     }

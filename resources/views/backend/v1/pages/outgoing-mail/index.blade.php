@@ -35,6 +35,8 @@
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
+                    <th scope="col">TTE</th>
+                    <th scope="col">File</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,8 +67,19 @@
                     <td>{{ $outgoing_mail->number }}</td>
                     <td>{{ $outgoing_mail->code }}</td>
                     <td>{{ $outgoing_mail->regarding }}</td>
-                    <td>{{ $outgoing_mail->date }}</td>
+                    <td>{{ date('d-m-Y', strtotime($outgoing_mail->date)) }}</td>
                     <td>{{ $outgoing_mail->agency }}</td>
+                    <td>
+                        <img class="p-3"
+                            src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee.show', $outgoing_mail->employee->id), 'QRCODE', 2, 2) }}"
+                            alt="barcode">
+                    </td>
+                    <td>
+                        <a href="{{ url('storage') . '/' . $outgoing_mail->file }}" target="_blank">
+                            <i class="fas fa-download"></i>
+                            Unduh
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

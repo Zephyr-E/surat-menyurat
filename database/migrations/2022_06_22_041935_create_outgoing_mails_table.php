@@ -16,12 +16,14 @@ class CreateOutgoingMailsTable extends Migration
         Schema::create('outgoing_mails', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('employee_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('uuid')->unique();
             $table->string('number');
             $table->string('code');
             $table->string('regarding');
             $table->date('date');
             $table->string('agency');
+            $table->text('file');
             $table->timestamps();
         });
     }
