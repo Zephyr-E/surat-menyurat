@@ -50,7 +50,7 @@ class OutgoingMailController extends Controller
             'regarding' => 'required',
             'date' => 'required',
             'agency' => 'required',
-            'file' => 'required|max:10024',
+            'file' => 'required|max:10024|mimes:pdf',
             'employee_id' => 'required'
         ]);
 
@@ -109,6 +109,9 @@ class OutgoingMailController extends Controller
 
         $data = $request->all();
         if (!is_null($request->file)) {
+            $request->validate([
+                'file' => 'required|max:10024|mimes:pdf'
+            ]);
             Storage::disk('public')->delete($request->oldFile);
             $data['file'] = $request->file('file')->store('assets/outgoing-mail', 'public');
         }

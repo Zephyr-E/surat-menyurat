@@ -42,10 +42,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="file">Upload File</label>
+                <label for="file">Upload File <small class="text-danger">(format .pdf maks. 10MB)</small></label>
                 <input type="hidden" name="oldFile" value="{{ $incoming_mail->file }}">
                 <br><span>Pilih File Baru :</span>
-                <input class="form-control" type="file" id="file" name="file">
+                <input class="form-control" type="file" id="file" name="file" accept=".pdf">
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Perbaharui</button>

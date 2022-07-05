@@ -43,7 +43,7 @@ class ArchiveController extends Controller
     {
 
         $request->validate([
-            'file' => 'required|max:10024',
+            'file' => 'required|max:10024|mimes:pdf',
             'name' => 'required'
         ]);
         $data = $request->all();
@@ -93,6 +93,9 @@ class ArchiveController extends Controller
 
         $data = $request->all();
         if (!is_null($request->file)) {
+            $request->validate([
+                'file' => 'required|max:10024|mimes:pdf'
+            ]);
             Storage::disk('public')->delete($request->oldFile);
             $data['file'] = $request->file('file')->store('assets/archive', 'public');
         }
