@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use App\Models\IncomingMail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -69,7 +70,9 @@ class IncomingMailController extends Controller
      */
     public function show(IncomingMail $incomingMail)
     {
-        //
+        Carbon::setLocale('id');
+        $data['incoming_mail'] = $incomingMail;
+        return view('backend.v1.pages.incoming-mail.show', $data);
     }
 
     /**

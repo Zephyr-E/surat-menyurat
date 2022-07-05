@@ -11,7 +11,7 @@
             <i class="fas fa-plus fa-sm"></i> Tambah Pengguna
         </a>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <table class="table table-bordered datatables">
             <thead>
                 <tr>
@@ -36,7 +36,7 @@
                     <td>{{ $loop->remaining + 1 }}</td>
                     <td>
                         @if (Auth::user()->role !== 'User')
-                        <div class="row justify-content-center">
+                        <div class="btn-group">
                             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
                                 Edit

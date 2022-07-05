@@ -21,6 +21,7 @@
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
                     <th scope="col">TTE</th>
+                    <th scope="col">Penandatangan</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,9 +34,10 @@
                     <td>{{ $incoming_mail->agency }}</td>
                     <td>
                         <img class="p-3"
-                            src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee.show', $incoming_mail->employee->id), 'QRCODE', 2, 2) }}"
+                            src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('incoming-mail.show', $incoming_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
+                    <td>{{ $incoming_mail->employee->nip .'|'. $incoming_mail->employee->name }}</td>
                 </tr>
                 @empty
                 <tr>

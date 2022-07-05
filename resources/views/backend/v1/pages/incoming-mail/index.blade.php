@@ -17,7 +17,7 @@
             <i class="fas fa-plus fa-sm"></i> Tambah Surat Masuk
         </a>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <table class="table table-bordered datatables">
             <thead>
                 <tr>
@@ -34,7 +34,8 @@
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
-                    <th scope="col">TTE Pegawai</th>
+                    <th scope="col">TTE</th>
+                    <th scope="col">Penandatangan</th>
                     <th scope="col">File</th>
                 </tr>
             </thead>
@@ -44,7 +45,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>
                         @if (Auth::user()->role !== 'User')
-                        <div class="row justify-content-center">
+                        <div class="btn-group">
                             <a href="{{ route('incoming-mail.edit', $incoming_mail->id) }}"
                                 class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
@@ -69,9 +70,10 @@
                     <td>{{ $incoming_mail->agency }}</td>
                     <td>
                         <img class="p-3"
-                            src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee.show', $incoming_mail->employee->id), 'QRCODE', 2, 2) }}"
+                            src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('incoming-mail.show', $incoming_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
+                    <td>{{ $incoming_mail->employee->nip .'|'. $incoming_mail->employee->name }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $incoming_mail->file }}" target="_blank">
                             <i class="fas fa-download"></i>
