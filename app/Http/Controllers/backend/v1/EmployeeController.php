@@ -27,6 +27,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('employee.index');
+        }
         return view('backend.v1.pages.employee.create');
     }
 
@@ -38,6 +41,9 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('employee.index');
+        }
         $request->validate([
             'nip' => 'required|unique:employees',
             'nik' => 'required|unique:employees',
@@ -70,6 +76,9 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('employee.index');
+        }
         $data['employee'] = $employee;
         return view('backend.v1.pages.employee.edit', $data);
     }
@@ -83,6 +92,9 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('employee.index');
+        }
         $request->validate([
             'nip' => 'required',
             'nik' => 'required',
@@ -104,6 +116,9 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('employee.index');
+        }
         $employee->delete();
         return redirect()->back()->with('toast_success', 'Pegawai Berhasil di Hapus');
     }

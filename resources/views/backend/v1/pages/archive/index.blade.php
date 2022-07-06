@@ -7,23 +7,28 @@
 @section('content')
 <div class="card">
     <div class="card-title">
+        @if (Auth::user()->role !== 'User')
         <a href="{{ route('archive.create') }}" class="btn btn-secondary btn-add text-white">
             <i class="fas fa-plus fa-sm"></i> Tambah Arsip
         </a>
+        @endif
     </div>
     <div class="card-body table-responsive">
         <table class="table table-bordered datatables">
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    @if (Auth::user()->role !== 'User')
                     <th scope="col" class="col-2">
-                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
-                        @endif
                     </th>
+                    @endif
+                    <th scope="col">Author</th>
                     <th scope="col">Nama File</th>
+                    <th scope="col">Tgl ditambahkan</th>
+                    <th scope="col">Tgl diperbaharui</th>
                     <th scope="col">File</th>
                 </tr>
             </thead>
@@ -31,8 +36,8 @@
                 @foreach ($archives as $archive)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    @if (Auth::user()->role !== 'User')
                     <td>
-                        @if (Auth::user()->role !== 'User')
                         <div class="btn-group">
                             <a href="{{ route('archive.edit', $archive->id) }}" class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
@@ -48,9 +53,12 @@
                                 </button>
                             </form>
                         </div>
-                        @endif
                     </td>
+                    @endif
+                    <td>{{ $archive->user->name }}</td>
                     <td>{{ $archive->name }}</td>
+                    <td>{{ date('d-m-Y', strtotime($archive->created_at)) }}</td>
+                    <td>{{ date('d-m-Y', strtotime($archive->updated_at)) }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $archive->file }}" target="_blank">
                             <i class="fas fa-download"></i>

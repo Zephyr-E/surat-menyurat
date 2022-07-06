@@ -32,6 +32,9 @@ class IncomingMailController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('incoming-mail.index');
+        }
         $data['employees'] = Employee::all();
         return view('backend.v1.pages.incoming-mail.create', $data);
     }
@@ -44,6 +47,9 @@ class IncomingMailController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('incoming-mail.index');
+        }
         $request->validate([
             'number' => 'required',
             'regarding' => 'required',
@@ -83,6 +89,9 @@ class IncomingMailController extends Controller
      */
     public function edit(IncomingMail $incomingMail)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('incoming-mail.index');
+        }
         $data['incoming_mail'] = $incomingMail;
         $data['employees'] = Employee::all();
         return view('backend.v1.pages.incoming-mail.edit', $data);
@@ -97,6 +106,9 @@ class IncomingMailController extends Controller
      */
     public function update(Request $request, IncomingMail $incomingMail)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('incoming-mail.index');
+        }
         $request->validate([
             'number' => 'required',
             'regarding' => 'required',
@@ -126,6 +138,9 @@ class IncomingMailController extends Controller
      */
     public function destroy(IncomingMail $incomingMail)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('incoming-mail.index');
+        }
         File::delete('storage/' . $incomingMail->file);
         $incomingMail->delete();
         return redirect()->back()->with('toast_success', 'Surat Masuk Berhasil di Hapus');

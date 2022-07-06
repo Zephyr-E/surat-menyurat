@@ -7,35 +7,38 @@
 @section('content')
 <div class="card">
     <div class="card-title">
+        @if (Auth::user()->role !== 'User')
         <a href="{{ route('user.create') }}" class="btn btn-secondary btn-add text-white">
             <i class="fas fa-plus fa-sm"></i> Tambah Pengguna
         </a>
+        @endif
     </div>
     <div class="card-body table-responsive">
         <table class="table table-bordered datatables">
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    @if (Auth::user()->role !== 'User')
                     <th scope="col">
-                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
-                        @endif
                     </th>
-                    <th scope="col">Name</th>
+                    @endif
+                    <th scope="col">Nama</th>
                     <th scope="col">Username</th>
                     <th scope="col">Role</th>
                     <th scope="col">Tanggal di Buat</th>
                 </tr>
             </thead>
             <tbody>
+                @php $number = 1 @endphp
                 @foreach ($users as $user)
                 @continue(Auth::user()->id == $user->id)
                 <tr>
-                    <td>{{ $loop->remaining + 1 }}</td>
+                    <td>{{ $number++ }}</td>
+                    @if (Auth::user()->role !== 'User')
                     <td>
-                        @if (Auth::user()->role !== 'User')
                         <div class="btn-group">
                             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
@@ -51,8 +54,8 @@
                                 </button>
                             </form>
                         </div>
-                        @endif
                     </td>
+                    @endif
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->role }}</td>

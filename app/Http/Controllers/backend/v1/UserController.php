@@ -28,6 +28,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('user.index');
+        }
         return view('backend.v1.pages.user.create');
     }
 
@@ -39,6 +42,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('user.index');
+        }
         $request->validate([
             'name' => 'required',
             'username' => 'required',
@@ -72,6 +78,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('user.index');
+        }
         $data['user'] = $user;
         return view('backend.v1.pages.user.edit', $data);
     }
@@ -85,6 +94,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('user.index');
+        }
         $request->validate([
             'name' => 'required',
             'username' => 'required',
@@ -105,6 +117,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('user.index');
+        }
         $user->delete();
         return redirect()->back()->with('toast_success', 'Pengguna Berhasil di Hapus');
     }

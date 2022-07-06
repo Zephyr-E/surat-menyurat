@@ -7,22 +7,24 @@
 @section('content')
 <div class="card">
     <div class="card-title">
+        @if (Auth::user()->role !== 'User')
         <a href="{{ route('employee.create') }}" class="btn btn-secondary btn-add text-white">
             <i class="fas fa-plus fa-sm"></i> Tambah Pegawai
         </a>
+        @endif
     </div>
     <div class="card-body table-responsive">
         <table class="table table-bordered datatables">
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    @if (Auth::user()->role !== 'User')
                     <th scope="col">
-                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
-                        @endif
                     </th>
+                    @endif
                     <th scope="col">NIP</th>
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
@@ -33,8 +35,8 @@
                 @foreach ($employees as $employee)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    @if (Auth::user()->role !== 'User')
                     <td>
-                        @if (Auth::user()->role !== 'User')
                         <div class="btn-group">
                             <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-light btn-sm">
                                 <i class="fas fa-pen text-primary"></i>
@@ -50,8 +52,8 @@
                                 </button>
                             </form>
                         </div>
-                        @endif
                     </td>
+                    @endif
                     <td>{{ $employee->nip }}</td>
                     <td>{{ $employee->nik }}</td>
                     <td>{{ $employee->name }}</td>

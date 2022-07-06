@@ -13,22 +13,24 @@
 @section('content')
 <div class="card">
     <div class="card-title">
+        @if (Auth::user()->role !== 'User')
         <a href="{{ route('outgoing-mail.create') }}" class="btn btn-secondary btn-add text-white">
             <i class="fas fa-plus fa-sm"></i> Tambah Surat Keluar
         </a>
+        @endif
     </div>
     <div class="card-body table-responsive">
         <table class="table table-bordered datatables">
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    @if (Auth::user()->role !== 'User')
                     <th scope="col">
-                        @if (Auth::user()->role !== 'User')
                         <div class="d-flex justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
-                        @endif
                     </th>
+                    @endif
                     <th scope="col">Author</th>
                     <th scope="col">No Surat</th>
                     <th scope="col">Kode</th>
@@ -44,8 +46,8 @@
                 @foreach ($outgoing_mails as $outgoing_mail)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    @if (Auth::user()->role !== 'User')
                     <td>
-                        @if (Auth::user()->role !== 'User')
                         <div class="btn-group">
                             <a href="{{ route('outgoing-mail.edit', $outgoing_mail->id) }}"
                                 class="btn btn-light btn-sm">
@@ -62,8 +64,8 @@
                                 </button>
                             </form>
                         </div>
-                        @endif
                     </td>
+                    @endif
                     <td>{{ $outgoing_mail->user->name }}</td>
                     <td>{{ $outgoing_mail->number }}</td>
                     <td>{{ $outgoing_mail->code }}</td>

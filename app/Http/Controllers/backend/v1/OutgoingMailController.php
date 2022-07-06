@@ -32,6 +32,9 @@ class OutgoingMailController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('outgoing-mail.index');
+        }
         $data['outgoingMail'] = OutgoingMail::orderBy('id', 'DESC')->first();
         $data['employees'] = Employee::all();
         return view('backend.v1.pages.outgoing-mail.create', $data);
@@ -45,6 +48,9 @@ class OutgoingMailController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('outgoing-mail.index');
+        }
         $request->validate([
             'code' => 'required',
             'regarding' => 'required',
@@ -84,6 +90,9 @@ class OutgoingMailController extends Controller
      */
     public function edit(OutgoingMail $outgoingMail)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('outgoing-mail.index');
+        }
         $data['outgoing_mail'] = $outgoingMail;
         $data['employees'] = Employee::all();
         return view('backend.v1.pages.outgoing-mail.edit', $data);
@@ -98,6 +107,9 @@ class OutgoingMailController extends Controller
      */
     public function update(Request $request, OutgoingMail $outgoingMail)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('outgoing-mail.index');
+        }
         $request->validate([
             'number' => 'required',
             'code' => 'required',
@@ -128,6 +140,9 @@ class OutgoingMailController extends Controller
      */
     public function destroy(OutgoingMail $outgoingMail)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('outgoing-mail.index');
+        }
         File::delete('storage/' . $outgoingMail->file);
         $outgoingMail->delete();
         return redirect()->back()->with('toast_success', 'Surat Keluar Berhasil Dihapus');

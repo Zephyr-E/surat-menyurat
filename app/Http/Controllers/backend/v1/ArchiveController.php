@@ -30,6 +30,9 @@ class ArchiveController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('archive.index');
+        }
         return view('backend.v1.pages.archive.create');
     }
 
@@ -41,7 +44,9 @@ class ArchiveController extends Controller
      */
     public function store(Request $request)
     {
-
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('archive.index');
+        }
         $request->validate([
             'file' => 'required|max:10024|mimes:pdf',
             'name' => 'required'
@@ -74,6 +79,9 @@ class ArchiveController extends Controller
      */
     public function edit(Archive $archive)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('archive.index');
+        }
         $data['archive'] = $archive;
         return view('backend.v1.pages.archive.edit', $data);
     }
@@ -87,6 +95,9 @@ class ArchiveController extends Controller
      */
     public function update(Request $request, Archive $archive)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('archive.index');
+        }
         $request->validate([
             'name' => 'required'
         ]);
@@ -113,6 +124,9 @@ class ArchiveController extends Controller
      */
     public function destroy(Archive $archive)
     {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->route('archive.index');
+        }
         File::delete('storage/' . $archive->file);
         $archive->delete();
         return redirect()->back()->with('toast_success', 'Arsip Berhasil di Hapus');
