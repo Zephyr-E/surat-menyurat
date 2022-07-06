@@ -19,9 +19,9 @@ class IncomingMailFactory extends Factory
             "uuid" => $this->faker->uuid(),
             "number" => $this->faker->numberBetween(100, 200),
             "regarding" => $this->faker->text(100),
-            "date" => $this->faker->dateTime(),
+            "date" => $this->faker->dateTimeBetween('-1 week', 'now'),
             "agency" => $this->faker->company(),
-            "file" => "kosong"
+            "file" => 'kosong'
         ];
     }
 }

@@ -25,7 +25,7 @@
                     </th>
                     <th scope="col">NIP</th>
                     <th scope="col">NIK</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Nama</th>
                     <th scope="col">Jabatan</th>
                 </tr>
             </thead>
