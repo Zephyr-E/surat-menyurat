@@ -21,7 +21,7 @@ class OutgoingMailController extends Controller
      */
     public function index()
     {
-        $data['outgoing_mails'] = OutgoingMail::all();
+        $data['outgoing_mails'] = OutgoingMail::orderBy('date', 'DESC')->get();
         return view('backend.v1.pages.outgoing-mail.index', $data);
     }
 

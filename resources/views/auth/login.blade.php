@@ -1,8 +1,15 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <img src="{{ url('templates/backend') }}/img/tapin.png" alt="navbar brand" class="navbar-brand img-fluid" width="150">
-            {{-- <x-jet-authentication-card-logo /> --}}
+            <img src="{{ url('templates/backend') }}/img/tapin.png" alt="navbar brand" class="navbar-brand img-fluid mx-auto" width="150">
+            <h1 class="text-center font-semibold text-xl text-gray-800 leading-tight mt-5">
+                E-KETAPANG
+            </h1>
+            <h3 class="text-center font-semibold text-gray-800 leading-tight">
+                DINAS KETAHANAN PANGAN KABUPATEN TAPIN
+            </h3>
+            {{--
+            <x-jet-authentication-card-logo /> --}}
         </x-slot>
 
 

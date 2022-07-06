@@ -36,8 +36,8 @@
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
-                    <th scope="col">TTE</th>
-                    <th scope="col">Penandatangan</th>
+                    <th scope="col">TTE Penanggung Jwb</th>
+                    <th scope="col">Disposisi</th>
                     <th scope="col">File</th>
                 </tr>
             </thead>
@@ -75,7 +75,7 @@
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('incoming-mail.show', $incoming_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td>{{ $incoming_mail->employee->nip .'|'. $incoming_mail->employee->name }}</td>
+                    <td>{{ $incoming_mail->employee->name .'|'. $incoming_mail->employee->position }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $incoming_mail->file }}" target="_blank">
                             <i class="fas fa-download"></i>

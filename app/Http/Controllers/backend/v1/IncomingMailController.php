@@ -21,7 +21,7 @@ class IncomingMailController extends Controller
      */
     public function index()
     {
-        $data['incoming_mails'] = IncomingMail::all();
+        $data['incoming_mails'] = IncomingMail::orderBy('date', 'DESC')->get();
         return view('backend.v1.pages.incoming-mail.index', $data);
     }
 

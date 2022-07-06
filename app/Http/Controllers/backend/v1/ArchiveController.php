@@ -19,7 +19,7 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        $data['archives'] = Archive::all();
+        $data['archives'] = Archive::orderBy('updated_at', 'DESC')->get();
         return view('backend.v1.pages.archive.index', $data);
     }
 
