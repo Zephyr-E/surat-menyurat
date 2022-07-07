@@ -20,7 +20,7 @@ class OutgoingMailFactory extends Factory
             "number" => null,
             "code" => $this->faker->numberBetween(1000, 9999),
             "regarding" => $this->faker->text(100),
-            "date" => $this->faker->dateTimeBetween('-1 week', 'now'),
+            "date" => $this->faker->dateTimeBetween('-3 week', 'now'),
             "agency" => $this->faker->company(),
             "file" => 'kosong'
         ];

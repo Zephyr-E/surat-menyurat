@@ -46,7 +46,7 @@
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-light btn-sm text-danger"
-                                    onclick="return confirm('Yakin Ingin Hapus Pegawai?')">
+                                    onclick="return confirm('Pegawai yang dihapus akan Mempengaruhi Data-Data lainnya \nYakin Ingin Hapus Pegawai?')">
                                     <i class="fas fa-trash text-danger"></i>
                                     Hapus
                                 </button>

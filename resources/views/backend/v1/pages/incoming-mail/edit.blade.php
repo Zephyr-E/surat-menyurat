@@ -42,6 +42,11 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="disposition">Disposisi</label>
+                <input type="text" class="form-control" name="disposition" id="disposition"
+                    placeholder="Masukkan Disposisi Surat" value="{{ $incoming_mail->disposition }}" required>
+            </div>
+            <div class="form-group">
                 <label for="file">Upload File <small class="text-danger">(format .pdf maks. 10MB)</small></label>
                 <input type="hidden" name="oldFile" value="{{ $incoming_mail->file }}">
                 <br><span>Pilih File Baru :</span>

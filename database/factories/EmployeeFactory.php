@@ -18,7 +18,7 @@ class EmployeeFactory extends Factory
             "nip" => $this->faker->numberBetween(10000000, 20000000),
             "nik" => $this->faker->numberBetween(10000000, 20000000),
             "name" => $this->faker->name(),
-            "position" => $this->faker->word()
+            "position" => $this->faker->jobTitle()
         ];
     }
 }

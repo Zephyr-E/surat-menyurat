@@ -21,7 +21,7 @@ class IncomingMailController extends Controller
      */
     public function index()
     {
-        $data['incoming_mails'] = IncomingMail::orderBy('date', 'DESC')->get();
+        $data['incoming_mails'] = IncomingMail::orderBy('date', 'DESC')->orderBy('updated_at', 'DESC')->get();
         return view('backend.v1.pages.incoming-mail.index', $data);
     }
 
@@ -53,6 +53,7 @@ class IncomingMailController extends Controller
         $request->validate([
             'number' => 'required',
             'regarding' => 'required',
+            'disposition' => 'required',
             'date' => 'required',
             'agency' => 'required',
             'file' => 'required|max:10024|mimes:pdf',
@@ -112,6 +113,7 @@ class IncomingMailController extends Controller
         $request->validate([
             'number' => 'required',
             'regarding' => 'required',
+            'disposition' => 'required',
             'date' => 'required',
             'agency' => 'required',
             'employee_id' => 'required'

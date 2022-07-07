@@ -38,7 +38,6 @@
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
                     <th scope="col">TTE Penanggung Jwb</th>
-                    <th scope="col">Disposisi</th>
                     <th scope="col">File</th>
                 </tr>
             </thead>
@@ -77,7 +76,6 @@
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('outgoing-mail.show', $outgoing_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td>{{ $outgoing_mail->employee->name .'|'. $outgoing_mail->employee->position }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $outgoing_mail->file }}" target="_blank">
                             <i class="fas fa-download"></i>

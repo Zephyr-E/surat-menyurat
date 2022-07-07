@@ -20,6 +20,7 @@ class CreateIncomingMailsTable extends Migration
             $table->string('uuid')->unique();
             $table->string('number');
             $table->string('regarding');
+            $table->string('disposition');
             $table->date('date');
             $table->string('agency');
             $table->text('file');
