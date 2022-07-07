@@ -25,4 +25,14 @@ class Employee extends Model
     {
         return $this->hasMany(OutgoingMail::class);
     }
+
+    public function employeeReviews()
+    {
+        return $this->hasMany(EmployeeReview::class);
+    }
+
+    public function decree()
+    {
+        return $this->hasMany(Decree::class);
+    }
 }

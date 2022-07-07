@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Decree;
 use App\Models\Employee;
+use App\Models\EmployeeReview;
 use App\Models\IncomingMail;
 use App\Models\OutgoingMail;
 use App\Models\User;
@@ -23,5 +25,7 @@ class DatabaseSeeder extends Seeder
         foreach (range(1, 10) as $int) {
             OutgoingMail::factory()->create(['number' => $int]);
         }
+        Decree::factory(10)->create();
+        EmployeeReview::factory(10)->create();
     }
 }
