@@ -21,8 +21,8 @@
                     <th scope="col">Perihal</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Instansi</th>
-                    <th scope="col">TTE</th>
-                    <th scope="col">Penandatangan</th>
+                    <th scope="col">TTE Penanggung Jawab</th>
+                    <th scope="col">Disposisi</th>
                 </tr>
             </thead>
             <tbody>
