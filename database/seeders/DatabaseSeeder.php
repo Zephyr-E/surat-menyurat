@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         IncomingMail::factory(10)->create();
         foreach (range(1, 10) as $int) {
             OutgoingMail::factory()->create(['number' => $int]);
+            Decree::factory()->create(['number' => $int]);
+            EmployeeReview::factory()->create(['number' => $int]);
         }
-        Decree::factory(10)->create();
-        EmployeeReview::factory(10)->create();
     }
 }
