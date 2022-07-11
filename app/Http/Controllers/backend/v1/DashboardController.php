@@ -4,7 +4,9 @@ namespace App\Http\Controllers\backend\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Archive;
+use App\Models\Decree;
 use App\Models\Employee;
+use App\Models\EmployeeReview;
 use App\Models\IncomingMail;
 use App\Models\OutgoingMail;
 use App\Models\User;
@@ -17,6 +19,8 @@ class DashboardController extends Controller
     {
         $data['incoming_mail'] = IncomingMail::count();
         $data['outgoing_mail'] = OutgoingMail::count();
+        $data['decree'] = Decree::count();
+        $data['employee_review'] = EmployeeReview::count();
         $data['archive'] = Archive::count();
         $data['employee'] = Employee::count();
         $data['user'] = User::count();

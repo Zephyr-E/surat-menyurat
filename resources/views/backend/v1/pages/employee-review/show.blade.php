@@ -17,8 +17,8 @@
                     <br>
                     <h2><u>Kode QR Berhasil Terverifikasi</u></h2>
                 </div>
+                <table class="table">
                 <div class="card-body">
-                    <table class="table">
                         <tr>
                             <td class="col-4"><b>Jenis Surat</b></td>
                             <td class="col-1">:</td>
@@ -55,8 +55,8 @@
                             <td class="col-1">:</td>
                             <td class="col-7">{{ $employee_review->disposition }}</td>
                         </tr>
-                    </table>
-                </div>
+                    </div>
+                </table>
             </div>
         </div>
     </div>

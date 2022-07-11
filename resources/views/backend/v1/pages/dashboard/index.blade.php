@@ -8,7 +8,7 @@
 <div class="card">
     <div class="card-body">
         <div class="row mt-5">
-            <div class="col-sm-6 col-md-3">
+            <a href="{{ route('incoming-mail.index') }}" class="btn col-sm-6 col-md-3">
                 <div class="card card-stats card-primary card-round">
                     <div class="card-body">
                         <div class="row">
@@ -26,9 +26,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-info card-round">
+            </a>
+            <a href="{{ route('outgoing-mail.index') }}" class="btn col-sm-6 col-md-3">
+                <div class="card card-stats card-primary card-round">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
@@ -45,8 +45,46 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
+            </a>
+            <a href="{{ route('decree.index') }}" class="btn col-sm-6 col-md-3">
+                <div class="card card-stats card-info card-round">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="icon-big text-center">
+                                    <i class="fas fa-inbox fa-fw"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-stats">
+                                <div class="numbers">
+                                    <p class="card-category">Surat Keputusan</p>
+                                    <h4 class="card-title">{{ $decree }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('employee-review.index') }}" class="btn col-sm-6 col-md-3">
+                <div class="card card-stats card-info card-round">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="icon-big text-center">
+                                    <i class="fas fa-inbox fa-fw"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-stats">
+                                <div class="numbers">
+                                    <p class="card-category">Telaah Staff</p>
+                                    <h4 class="card-title">{{ $employee_review }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('archive.index') }}" class="btn col-sm-6 col-md-3">
                 <div class="card card-stats card-success card-round">
                     <div class="card-body ">
                         <div class="row">
@@ -64,8 +102,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
+            </a>
+            <a href="{{ route('employee.index') }}" class="btn col-sm-6 col-md-3">
                 <div class="card card-stats card-secondary card-round">
                     <div class="card-body ">
                         <div class="row">
@@ -83,8 +121,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
+            </a>
+            <a href="{{ route('user.index') }}" class="btn col-sm-6 col-md-3">
                 <div class="card card-stats card-warning card-round">
                     <div class="card-body ">
                         <div class="row">
@@ -102,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
