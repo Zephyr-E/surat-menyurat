@@ -45,19 +45,9 @@
                             <td class="col-7">{{ $outgoing_mail->agency }}</td>
                         </tr>
                         <tr>
-                            <td class="col-4"><b>Penandatangan</b></td>
+                            <td class="col-4"><b>Penanggung Jawab</b></td>
                             <td class="col-1">:</td>
                             <td class="col-7">{{ $outgoing_mail->employee->name }}</td>
-                        </tr>
-                        <tr>
-                            <td class="col-4"><b>NIK</b></td>
-                            <td class="col-1">:</td>
-                            <td class="col-7">{{ $outgoing_mail->employee->nip }}</td>
-                        </tr>
-                        <tr>
-                            <td class="col-4"><b>NIP</b></td>
-                            <td class="col-1">:</td>
-                            <td class="col-7">{{ $outgoing_mail->employee->nip }}</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>Jabatan</b></td>

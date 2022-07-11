@@ -22,43 +22,38 @@
                         <tr>
                             <td class="col-4"><b>Jenis Surat</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">Surat Masuk</td>
+                            <td class="col-7">Surat Keputusan</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>No Surat</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->number }}</td>
+                            <td class="col-7">{{ $decree->number }}</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>Perihal</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->regarding }}</td>
-                        </tr>
-                        <tr>
-                            <td class="col-4"><b>Instansi</b></td>
-                            <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->agency }}</td>
+                            <td class="col-7">{{ $decree->regarding }}</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>Penanggung Jawab</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->employee->name }}</td>
+                            <td class="col-7">{{ $decree->employee->name }}</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>Jabatan</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->employee->position }}</td>
+                            <td class="col-7">{{ $decree->employee->position }}</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>Ditandatangani Tanggal</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->created_at->isoFormat('dddd, D MMMM Y')
+                            <td class="col-7">{{ $decree->created_at->isoFormat('dddd, D MMMM Y')
                                 }}</td>
                         </tr>
                         <tr>
                             <td class="col-4"><b>Disposisi</b></td>
                             <td class="col-1">:</td>
-                            <td class="col-7">{{ $incoming_mail->disposition }}</td>
+                            <td class="col-7">{{ $decree->disposition }}</td>
                         </tr>
                     </table>
                 </div>

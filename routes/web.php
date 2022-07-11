@@ -48,3 +48,5 @@ Route::group(["middleware" => [
 
 Route::get('/incoming-mail/{incoming_mail:uuid}/show', [IncomingMailController::class, 'show'])->name('incoming-mail.show');
 Route::get('/outgoing-mail/{outgoing_mail:uuid}/show', [OutgoingMailController::class, 'show'])->name('outgoing-mail.show');
+Route::get('/decree/{decree:uuid}/show', [DecreeController::class, 'show'])->name('decree.show');
+Route::get('/employee-review/{employee_review:uuid}/show', [EmployeeReviewController::class, 'show'])->name('employee-review.show');
