@@ -30,6 +30,7 @@ Route::group(["middleware" => [
 ]], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::get('profile', [DashboardController::class, 'profile'])->name('profile');
+    Route::get('nav-create/{nav_create:route}', [DashboardController::class, 'nav_create'])->name('nav-create');
     Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
 
     Route::resource('incoming-mail', IncomingMailController::class);

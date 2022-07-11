@@ -30,6 +30,15 @@ class DashboardController extends Controller
         return view('profile.show', $data);
     }
 
+    public function nav_create($route)
+    {
+        if (Auth::user()->role !== 'Admin') {
+            return redirect()->back();
+        }
+        $route = $route . '/create';
+        return redirect($route);
+    }
+
     public function logout(Request $request)
     {
         Auth::logout();
