@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\backend\v1\ArchiveController;
 use App\Http\Controllers\backend\v1\DashboardController;
+use App\Http\Controllers\backend\v1\DecreeController;
 use App\Http\Controllers\backend\v1\EmployeeController;
+use App\Http\Controllers\backend\v1\EmployeeReviewController;
 use App\Http\Controllers\backend\v1\IncomingMailController;
 use App\Http\Controllers\backend\v1\OutgoingMailController;
 use App\Http\Controllers\backend\v1\UserController;
@@ -32,12 +34,16 @@ Route::group(["middleware" => [
 
     Route::resource('incoming-mail', IncomingMailController::class);
     Route::resource('outgoing-mail', OutgoingMailController::class);
+    Route::resource('decree', DecreeController::class);
+    Route::resource('employee-review', EmployeeReviewController::class);
     Route::resource('archive', ArchiveController::class);
     Route::resource('employee', EmployeeController::class);
     Route::resource('user', UserController::class);
 
     Route::get('/report/incoming-mail', [ReportController::class, 'incoming_mail'])->name('report.incoming-mail');
     Route::get('/report/outgoing-mail', [ReportController::class, 'outgoing_mail'])->name('report.outgoing-mail');
+    Route::get('/report/decree', [ReportController::class, 'decree'])->name('report.decree');
+    Route::get('/report/employee-review', [ReportController::class, 'employee_review'])->name('report.employee-review');
 });
 
 Route::get('/incoming-mail/{incoming_mail:uuid}/show', [IncomingMailController::class, 'show'])->name('incoming-mail.show');

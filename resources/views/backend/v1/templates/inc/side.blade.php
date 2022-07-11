@@ -50,6 +50,20 @@
                     </a>
                 </li>
                 <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['decree.index', 'decree.create', 'decree.edit']) ? 'active' : '' }}">
+                    <a href="{{ route('decree.index') }}">
+                        <i class="fas fa-file"></i>
+                        <p>Surat Keputusan</p>
+                    </a>
+                </li>
+                <li
+                    class="nav-item {{ in_array(Route::currentRouteName(), ['employee-review.index', 'employee-review.create', 'employee-review.edit']) ? 'active' : '' }}">
+                    <a href="{{ route('employee-review.index') }}">
+                        <i class="fas fa-file"></i>
+                        <p>Telaah Staff</p>
+                    </a>
+                </li>
+                <li
                     class="nav-item {{ in_array(Route::currentRouteName(), ['archive.index', 'archive.create', 'archive.edit']) ? 'active' : '' }}">
                     <a href="{{ route('archive.index') }}">
                         <i class="fas fa-file-archive"></i>

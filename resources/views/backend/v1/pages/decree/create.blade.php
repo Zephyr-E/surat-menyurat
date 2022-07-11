@@ -8,12 +8,12 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('incoming-mail.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('decree.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="number">No Surat</label>
-                <input type="text" class="form-control" name="number" id="number" placeholder="Masukkan No Surat"
-                    required>
+                <input type="text" class="form-control" readonly name="number" id="number"
+                    placeholder="Masukkan No Surat" value="{{ $decree ? $decree->number+1 : '1' }}" required>
             </div>
             <div class="form-group">
                 <label for="regarding">Perihal</label>
@@ -23,11 +23,6 @@
             <div class="form-group">
                 <label for="date">Tanggal</label>
                 <input type="date" class="form-control" name="date" id="date" required>
-            </div>
-            <div class="form-group">
-                <label for="agency">Instansi</label>
-                <input type="text" class="form-control" name="agency" id="agency" placeholder="Masukkan Instansi"
-                    required>
             </div>
             <div class="form-group">
                 <label for="employee_id">TTE Penanggung Jawab</label>
@@ -51,7 +46,7 @@
             </div>
             <div class="form-group pt-3">
                 <button class="btn btn-primary">Simpan</button>
-                <a href="{{ route('incoming-mail.index') }}" class="btn btn-warning">Batal</a>
+                <a href="{{ route('decree.index') }}" class="btn btn-warning">Batal</a>
             </div>
         </form>
     </div>
