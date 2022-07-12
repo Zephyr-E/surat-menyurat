@@ -66,14 +66,14 @@
                     @endif
                     <td>{{ $employee_review->user->name }}</td>
                     <td>{{ $employee_review->number }}</td>
-                    <td>{{ $employee_review->regarding }}</td>
+                    <td class="ellipsis">{{ $employee_review->regarding }}</td>
                     <td>{{ date('d-m-Y', strtotime($employee_review->date)) }}</td>
                     <td>
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee-review.show', $employee_review->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td>{{ $employee_review->disposition }}</td>
+                    <td class="ellipsis">{{ $employee_review->disposition }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $employee_review->file }}" target="_blank">
                             <i class="fas fa-download"></i>

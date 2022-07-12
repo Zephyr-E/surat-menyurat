@@ -68,9 +68,9 @@
                     <td>{{ $outgoing_mail->user->name }}</td>
                     <td>{{ $outgoing_mail->number }}</td>
                     <td>{{ $outgoing_mail->code }}</td>
-                    <td>{{ $outgoing_mail->regarding }}</td>
+                    <td class="ellipsis">{{ $outgoing_mail->regarding }}</td>
                     <td>{{ date('d-m-Y', strtotime($outgoing_mail->date)) }}</td>
-                    <td>{{ $outgoing_mail->agency }}</td>
+                    <td class="ellipsis">{{ $outgoing_mail->agency }}</td>
                     <td>
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('outgoing-mail.show', $outgoing_mail->uuid), 'QRCODE', 2, 2) }}"
