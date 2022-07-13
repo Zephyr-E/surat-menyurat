@@ -78,7 +78,12 @@
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee-review.show', $employee_review->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td>{{ $employee_review->disposition }}</td>
+                    <td>
+                        <div class="ellipsis-text">
+                            {{ $employee_review->disposition }}
+                        </div>
+                        <span class="text-primary ellipsis-expand">selengkapnya</span>
+                    </td>
                     <td>
                         <a href="{{ url('storage') . '/' . $employee_review->file }}" target="_blank">
                             <i class="fas fa-download"></i>

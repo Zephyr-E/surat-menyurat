@@ -75,7 +75,12 @@
                         <span class="text-primary ellipsis-expand">selengkapnya</span>
                     </td>
                     <td>{{ date('d-m-Y', strtotime($outgoing_mail->date)) }}</td>
-                    <td>{{ $outgoing_mail->agency }}</td>
+                    <td>
+                        <div class="ellipsis-text">
+                            {{ $outgoing_mail->agency }}
+                        </div>
+                        <span class="text-primary ellipsis-expand">selengkapnya</span>
+                    </td>
                     <td>
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('outgoing-mail.show', $outgoing_mail->uuid), 'QRCODE', 2, 2) }}"

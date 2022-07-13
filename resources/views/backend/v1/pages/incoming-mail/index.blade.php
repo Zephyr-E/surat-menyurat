@@ -74,13 +74,23 @@
                         <span class="text-primary ellipsis-expand">selengkapnya</span>
                     </td>
                     <td>{{ date('d-m-Y', strtotime($incoming_mail->date)) }}</td>
-                    <td> {{ $incoming_mail->agency }} </td>
+                    <td>
+                        <div class="ellipsis-text">
+                            {{ $incoming_mail->agency }}
+                        </div>
+                        <span class="text-primary ellipsis-expand">selengkapnya</span>
+                    </td>
                     <td>
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('incoming-mail.show', $incoming_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td> {{ $incoming_mail->disposition }} </td>
+                    <td>
+                        <div class="ellipsis-text">
+                            {{ $incoming_mail->disposition }}
+                        </div>
+                        <span class="text-primary ellipsis-expand">selengkapnya</span>
+                    </td>
                     <td>
                         <a href="{{ url('storage') . '/' . $incoming_mail->file }}" target="_blank">
                             <i class="fas fa-download"></i>
