@@ -9,6 +9,6 @@
         } else if ($(this).prev().hasClass('expand')) {
             $(this).prev().removeAttr('style')
             $(this).prev().removeClass('expand')
-            ellipsisText()
+            $(this).text('selengkapnya')
         }
     })
