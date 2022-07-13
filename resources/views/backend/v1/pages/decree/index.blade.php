@@ -65,14 +65,19 @@
                     @endif
                     <td>{{ $decree->user->name }}</td>
                     <td>{{ $decree->number }}</td>
-                    <td class="ellipsis">{{ $decree->regarding }}</td>
+                    <td>
+                        <div class="ellipsis-text">
+                            {{ $decree->regarding }}
+                        </div>
+                        <span class="text-primary ellipsis-expand">selengkapnya</span>
+                    </td>
                     <td>{{ date('d-m-Y', strtotime($decree->date)) }}</td>
                     <td>
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('decree.show', $decree->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td class="ellipsis">{{ $decree->disposition }}</td>
+                    <td>{{ $decree->disposition }}</td>
                     <td>
                         <a href="{{ url('storage') . '/' . $decree->file }}" target="_blank">
                             <i class="fas fa-download"></i>

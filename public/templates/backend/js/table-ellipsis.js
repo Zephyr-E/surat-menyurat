@@ -1,13 +1,14 @@
-$('.table td.ellipsis').click(function () {
-    if (!$(this).hasClass('expand')) {
-        $(this).css('text-overflow', 'clip')
-        $(this).css('white-space', 'normal')
-        $(this).css('word-break', 'break-all')
-        $(this).css('cursor', 'zoom-out')
-        $(this).css('cursor', '-webkit-zoom-out')
-        $(this).addClass('expand')
-    } else if ($(this).hasClass('expand')) {
-        $(this).removeAttr('style')
-        $(this).removeClass('expand')
-    }
-})
+    $('.ellipsis-expand').click(function () {
+        if (!$(this).prev().hasClass('expand')) {
+            $(this).prev().css('text-overflow', 'clip')
+            $(this).prev().css('white-space', 'normal')
+            $(this).prev().css('word-break', 'break-all')
+            $(this).prev().css('margin-bottom', '20px')
+            $(this).prev().addClass('expand')
+            $(this).text('lebih sedikit')
+        } else if ($(this).prev().hasClass('expand')) {
+            $(this).prev().removeAttr('style')
+            $(this).prev().removeClass('expand')
+            ellipsisText()
+        }
+    })

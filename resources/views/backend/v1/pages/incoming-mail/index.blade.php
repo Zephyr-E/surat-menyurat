@@ -67,15 +67,20 @@
                     @endif
                     <td>{{ $incoming_mail->user->name }}</td>
                     <td>{{ $incoming_mail->number }}</td>
-                    <td class="ellipsis">{{ $incoming_mail->regarding }}</td>
+                    <td>
+                        <div class="ellipsis-text">
+                            {{ $incoming_mail->regarding }}
+                        </div>
+                        <span class="text-primary ellipsis-expand">selengkapnya</span>
+                    </td>
                     <td>{{ date('d-m-Y', strtotime($incoming_mail->date)) }}</td>
-                    <td class="ellipsis">{{ $incoming_mail->agency }}</td>
+                    <td> {{ $incoming_mail->agency }} </td>
                     <td>
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('incoming-mail.show', $incoming_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
                     </td>
-                    <td class="ellipsis">{{ $incoming_mail->disposition }}</td>
+                    <td> {{ $incoming_mail->disposition }} </td>
                     <td>
                         <a href="{{ url('storage') . '/' . $incoming_mail->file }}" target="_blank">
                             <i class="fas fa-download"></i>

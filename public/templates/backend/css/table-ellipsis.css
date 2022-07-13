@@ -1,15 +1,10 @@
-.table tbody td.ellipsis {
-    max-width: 150px;
+.ellipsis-text {
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.table tbody td.ellipsis:hover {
-    max-width: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
+.ellipsis-expand:hover {
+    cursor: pointer;
 }
