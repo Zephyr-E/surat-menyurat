@@ -73,9 +73,11 @@
                     </td>
                     <td>{{ date('d-m-Y', strtotime($decree->date)) }}</td>
                     <td>
+                        <a href="{{ route('decree.show', $decree->uuid) }}" target="_blank">
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('decree.show', $decree->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
+                        </a>
                     </td>
                     <td>
                         <div class="ellipsis-text">

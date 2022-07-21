@@ -74,9 +74,11 @@
                     </td>
                     <td>{{ date('d-m-Y', strtotime($employee_review->date)) }}</td>
                     <td>
+                        <a href="{{ route('employee-review.show', $employee_review->uuid) }}" target="_blank">
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('employee-review.show', $employee_review->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
+                        </a>
                     </td>
                     <td>
                         <div class="ellipsis-text">

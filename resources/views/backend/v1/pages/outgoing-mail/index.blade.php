@@ -82,9 +82,11 @@
                         <span class="text-primary ellipsis-expand">selengkapnya</span>
                     </td>
                     <td>
+                        <a href="{{ route('outgoing-mail.show', $outgoing_mail->uuid) }}" target="_blank">
                         <img class="p-3"
                             src="data:image/png;base64,{{ DNS2D::getBarcodePNG(route('outgoing-mail.show', $outgoing_mail->uuid), 'QRCODE', 2, 2) }}"
                             alt="barcode">
+                        </a>
                     </td>
                     <td>
                         <a href="{{ url('storage') . '/' . $outgoing_mail->file }}" target="_blank">
