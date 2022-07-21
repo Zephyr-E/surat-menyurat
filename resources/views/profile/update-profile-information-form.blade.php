@@ -29,7 +29,7 @@
             {{ __('Disimpan.') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+        <x-jet-button>
             {{ __('Simpan') }}
         </x-jet-button>
     </x-slot>
