@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="{{ url('templates/backend') }}/img/tapin.png" alt="navbar brand" class="block h-9 w-auto">
                     </a>
                 </div>
                 
